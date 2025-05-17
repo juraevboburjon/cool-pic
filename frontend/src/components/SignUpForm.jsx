@@ -1,10 +1,22 @@
 import React from "react";
 
-const LoginForm = ({ formData, handleChange, handleSubmit }) => {
+const SignUpForm = ({ formData, handleChange, handleSubmit }) => {
   return (
     <>
       <form className="w-90" onSubmit={handleSubmit}>
         <div className="flex flex-col">
+          <label htmlFor="email" className="pb-2 pt-8 font-medium">
+            Username:
+          </label>
+          <input
+            type="username"
+            id="username"
+            name="username"
+            value={formData.username}
+            onChange={handleChange}
+            placeholder="username"
+            className="border-b focus:outline-none"
+          />
           <label htmlFor="email" className="pb-2 pt-8 font-medium">
             Email:
           </label>
@@ -35,7 +47,7 @@ const LoginForm = ({ formData, handleChange, handleSubmit }) => {
             type="submit"
             className="w-full py-2 rounded text-white bg-blue-800 cursor-pointer hover:bg-blue-700 transition"
           >
-            Login
+            Create Account
           </button>
         </div>
       </form>
@@ -43,4 +55,4 @@ const LoginForm = ({ formData, handleChange, handleSubmit }) => {
   );
 };
 
-export default LoginForm;
+export default SignUpForm;
