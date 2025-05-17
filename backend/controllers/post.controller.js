@@ -3,9 +3,24 @@ const postService = require("../service/post.service");
 class PostController {
   async create(req, res) {
     try {
-      const post = await postService.create(req.body);
+      if (!req.file) {
+        return res.status(400).json({ message: "Image file is required" });
+      }
+
+      const { title, description, tags } = req.body;
+
+      const imgUrl = req.file.path || req.file.secure_url || req.file.url;
+
+      const post = await postService.create({
+        title,
+        description,
+        tags: tags ? tags.split(",") : [],
+        imgUrl,
+      });
+
       res.status(200).json(post);
     } catch (error) {
+      console.error("Error creating post:", error);
       res.status(500).json({ message: error.message });
     }
   }
