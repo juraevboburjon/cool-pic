@@ -4,7 +4,7 @@ import bgImg from "../images/background.png";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import SignUpForm from "../components/SignUpForm";
-// import toast from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
   const [formData, setFormData] = useState({
@@ -27,10 +27,10 @@ const SignUp = () => {
       const res = await axios.post(`${host}/api/auth/register`, formData);
       if (res) {
         navigate("/login");
-        console.log(res.data.message);
+        toast.success(res.data.message);
       }
     } catch (error) {
-      console.log(error.response.data.message);
+      toast.error(error.response.data.message);
     }
   };
 

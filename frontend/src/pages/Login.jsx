@@ -4,10 +4,11 @@ import bgImg from "../images/background.png";
 import { Link, useNavigate } from "react-router-dom";
 import LoginForm from "../components/LoginForm";
 import axios from "axios";
-// import toast from "react-hot-toast";
+import { useAuth } from "../service/AuthContext";
+import toast from "react-hot-toast";
 
 const Login = () => {
-  const [userLoginned, setUserLoginned] = useState(false);
+  const { login } = useAuth();
   const [formData, setFormData] = useState({ email: "", password: "" });
   const host = import.meta.env.VITE_HOST;
   const navigate = useNavigate();
@@ -23,12 +24,12 @@ const Login = () => {
     try {
       const res = await axios.post(`${host}/api/auth/login`, formData);
       if (res) {
-        setUserLoginned(!userLoginned);
+        login(formData.email);
         navigate("/home");
-        console.log(res.data.message);
+        toast.success(res.data.message);
       }
     } catch (error) {
-      console.log(error.response.data.message);
+      toast.error(error.response.data.message);
     }
   };
 
@@ -43,7 +44,7 @@ const Login = () => {
       <div className="absolute -z-50 inset-0 bg-black opacity-50"></div>
       <div className="absolute top-0 w-full z-10 bg-white shadow-lg">
         <div className="flex justify-center">
-          <Navbar userLoginned={userLoginned} formData={formData} />
+          <Navbar />
         </div>
       </div>
       <div className="flex flex-col items-center justify-between mt-35 w-full h-full text-white lg:grid grid-cols-2 lg:mx-30">
