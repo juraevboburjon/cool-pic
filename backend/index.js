@@ -5,6 +5,7 @@ const cors = require("cors");
 
 const postRoute = require("./routes/post.route");
 const authRoute = require("./routes/auth.route");
+const commentRoute = require("./routes/comment.route");
 
 const app = express();
 app.use(express.json());
@@ -15,6 +16,7 @@ const PORT = process.env.PORT || 8000;
 // Routes
 app.use("/api/post", postRoute);
 app.use("/api/auth", authRoute);
+app.use("/api/comment", commentRoute);
 
 const startapp = async () => {
   try {

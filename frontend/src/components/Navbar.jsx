@@ -12,7 +12,9 @@ const Navbar = () => {
   };
   return (
     <div className="flex items-center justify-between w-full conatiner h-20 mx-auto px-25 ">
-      <div className="text-3xl font-black text-blue-800">Cool Pic</div>
+      <div className="text-3xl font-black text-blue-800">
+        <Link to={"/home"}>Cool Pic</Link>
+      </div>
 
       <div className="flex gap-x-6 items-center font-medium">
         <div className="cursor-pointer">About</div>

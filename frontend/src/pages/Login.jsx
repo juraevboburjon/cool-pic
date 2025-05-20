@@ -65,7 +65,7 @@ const Login = () => {
           />
           <div className="text-center">
             <p>Don't have register?</p>
-            <Link to={"/sigup"} className="font-bold">
+            <Link to={"/signup"} className="font-bold">
               Signup
             </Link>
           </div>
