@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import Comment from "../components/Comment";
+// import Comment from "../components/Comment";
 
 const Post = () => {
   const { id } = useParams();
@@ -40,9 +40,7 @@ const Post = () => {
             <p>{postInfo.description}</p>
             <p>{postInfo.updatedAt}</p>
           </div>
-          <div className="f">
-            <Comment postId={id} />
-          </div>
+          <div className="f">{/* <Comment postId={id} /> */}</div>
         </div>
       </div>
     </div>

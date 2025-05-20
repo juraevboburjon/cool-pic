@@ -10,6 +10,7 @@ const Navbar = () => {
     logout();
     navigate("/login");
   };
+
   return (
     <div className="flex items-center justify-between w-full conatiner h-20 mx-auto px-25 ">
       <div className="text-3xl font-black text-blue-800">
@@ -40,6 +41,11 @@ const Navbar = () => {
             >
               Logout
             </button>
+            <Link to={"/create"}>
+              <button className="px-4 py-2 text-white bg-blue-800 rounded hover:bg-blue-700 transition">
+                New Post
+              </button>
+            </Link>
           </div>
         )}
       </div>

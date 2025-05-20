@@ -11,6 +11,7 @@ import SignUp from "./pages/SignUp";
 import { AuthProvider } from "./service/AuthContext";
 import { Toaster } from "react-hot-toast";
 import Post from "./pages/Post";
+import CreatePost from "./pages/CreatePost";
 
 function App() {
   const routes = createBrowserRouter(
@@ -20,6 +21,7 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/home" element={<Home />} />
         <Route path="/post/:id" element={<Post />} />
+        <Route path="/create" element={<CreatePost />} />
       </>
     )
   );
