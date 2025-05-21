@@ -17,7 +17,7 @@ const Home = () => {
       }
     };
     fetchData();
-  }, [host]);
+  }, [host, posts]);
 
   return (
     <div>

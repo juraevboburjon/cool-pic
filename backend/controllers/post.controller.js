@@ -7,11 +7,12 @@ class PostController {
         return res.status(400).json({ message: "Image file is required" });
       }
 
-      const { title, description, tags } = req.body;
+      const { title, description, tags, author } = req.body;
 
       const imgUrl = req.file.path || req.file.secure_url || req.file.url;
 
       const post = await postService.create({
+        author,
         title,
         description,
         tags: tags ? tags.split(",") : [],

@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Navbar from "../components/Navbar";
 // import Comment from "../components/Comment";
 
@@ -8,6 +8,9 @@ const Post = () => {
   const { id } = useParams();
   const host = import.meta.env.VITE_HOST;
   const [postInfo, setPostInfo] = useState([]);
+  const currentUser = localStorage.getItem("userEmail");
+  const author = postInfo.author;
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -22,6 +25,12 @@ const Post = () => {
   }, [id, host]);
 
   console.log(postInfo);
+
+  const handleDelete = async () => {
+    await axios
+      .delete(`${host}/api/post/delete/${id}`)
+      .then(() => navigate("/home"));
+  };
 
   return (
     <div className="f">
@@ -39,6 +48,10 @@ const Post = () => {
             <h1 className="text-2xl font-semibold">{postInfo.title}</h1>
             <p>{postInfo.description}</p>
             <p>{postInfo.updatedAt}</p>
+            <p>{postInfo.author}</p>
+            {currentUser === author && (
+              <button onClick={() => handleDelete()}>delete</button>
+            )}
           </div>
           <div className="f">{/* <Comment postId={id} /> */}</div>
         </div>

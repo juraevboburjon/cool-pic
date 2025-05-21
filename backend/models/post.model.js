@@ -2,6 +2,7 @@ const { Schema, model } = require("mongoose");
 
 const postSchema = new Schema(
   {
+    author: { type: String },
     imgUrl: { type: String, required: true },
     title: { type: String, required: true },
     description: { type: String, maxLength: 500 },
