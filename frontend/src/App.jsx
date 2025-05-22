@@ -17,7 +17,7 @@ function App() {
   const routes = createBrowserRouter(
     createRoutesFromElements(
       <>
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" default element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/home" element={<Home />} />
         <Route path="/post/:id" element={<Post />} />
