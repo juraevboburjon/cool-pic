@@ -11,10 +11,21 @@ const Navbar = () => {
     navigate("/login");
   };
 
+  const handleLogo = () => {
+    if (isLoggedIn) {
+      navigate("/home");
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
     <div className="flex items-center justify-between w-full conatiner h-20 mx-auto px-25">
-      <div className="text-3xl font-black text-blue-800">
-        <Link to={"/home"}>Cool Pic</Link>
+      <div
+        onClick={handleLogo}
+        className="text-3xl font-black text-blue-800 cursor-pointer"
+      >
+        Cool Pic
       </div>
 
       <div className="flex gap-x-6 items-center font-medium">
@@ -25,7 +36,7 @@ const Navbar = () => {
                 Login
               </button>
             </Link>
-            <Link to="/signup">
+            <Link to={"/signup"}>
               <button className="px-4 py-2 text-white bg-gray-400 rounded hover:bg-gray-300">
                 Sign up
               </button>

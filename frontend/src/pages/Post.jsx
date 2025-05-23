@@ -20,7 +20,6 @@ const Post = () => {
         const res = await axios.get(`${host}/api/post/get/${id}`);
         const parsedTags = JSON.parse(res.data.tags);
         setTags(parsedTags.map((tag) => tag.value));
-
         setPostInfo(res.data);
       } catch (error) {
         console.log(error);

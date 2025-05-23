@@ -35,7 +35,7 @@ const Login = () => {
 
   return (
     <Layout>
-      <div className="relative flex w-full min-h-screen overflow-y-scroll">
+      <div className="flex w-full min-h-screen overflow-y-scroll">
         <div
           className="absolute h-full -z-50 inset-0  bg-no-repeat bg-cover bg-center"
           style={{

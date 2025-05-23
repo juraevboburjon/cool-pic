@@ -6,7 +6,7 @@ const Layout = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsLoading(false), 2000); // 2 секунды
+    const timer = setTimeout(() => setIsLoading(false), 1000);
 
     return () => clearTimeout(timer);
   }, []);
