@@ -49,19 +49,24 @@ const Post = () => {
         </div>
 
         <div className="flex flex-col justify-start w-[50%]">
-          <div className="text-start mb-4">
-            <h1 className="text-2xl font-semibold mb-2">{postInfo.title}</h1>
-            <p className="text-sm text-gray-600 mb-1">{postInfo.description}</p>
-            {tags.map((tag, index) => (
-              <p key={index} className="text-xs text-gray-400 mb-1">
-                {tag}
-              </p>
-            ))}
-            <p className="text-xs text-gray-400 mb-1">{postInfo.updatedAt}</p>
-            <p className="text-xs text-gray-400">{postInfo.author}</p>
+          <div className=" text-start mb-4">
+            <h1 className="text-3xl font-bold mb-4">{postInfo.title}</h1>
+            <p className="text-lg text-gray-600 mb-2">{postInfo.description}</p>
+            <div className="flex flex-row gap-4 mb-4">
+              {tags.map((tag, index) => (
+                <p
+                  key={index}
+                  className="text-sm px-3 py-1 rounded text-gray-600 bg-blue-50 cursor-pointer"
+                >
+                  {tag}
+                </p>
+              ))}
+            </div>
+            <p className="text-sm text-gray-500 mb-1">{postInfo.updatedAt}</p>
+            <p className="text-md text-black">{postInfo.author}</p>
           </div>
 
-          <div className="mt-auto">
+          <div className=" flex mt-auto gap-x-6">
             {currentUser === author && (
               <>
                 <button
