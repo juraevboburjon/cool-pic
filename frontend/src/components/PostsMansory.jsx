@@ -1,10 +1,27 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import LoadingSpinner from "./LoadingSpinner";
 
-const PostsMansory = ({ posts }) => {
+const PostsMansory = () => {
+  const host = import.meta.env.VITE_HOST;
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`${host}/api/post/getAll`);
+        setPosts(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, [host, posts]);
+
   // console.log(posts);
   return (
-    <div className="mx-auto mt-8 p-8">
+    <div className="mx-auto mt-15 p-8">
       <div className="gap-4 columns-2 md:columns-4">
         {posts.map((post, index) => {
           return (

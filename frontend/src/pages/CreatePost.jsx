@@ -1,17 +1,14 @@
 import React from "react";
-import Navbar from "../components/Navbar";
 import CreatePostForm from "../components/CreatePostForm";
+import Layout from "../components/Layout";
 
 const CreatePost = () => {
   return (
-    <>
-      <div className="shadow">
-        <Navbar />
-      </div>
+    <Layout>
       <div className="mt-10">
         <CreatePostForm />
       </div>
-    </>
+    </Layout>
   );
 };
 
