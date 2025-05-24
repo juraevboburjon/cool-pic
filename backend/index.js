@@ -8,9 +8,15 @@ const postRoute = require("./routes/post.route");
 const authRoute = require("./routes/auth.route");
 const commentRoute = require("./routes/comment.route");
 
+const corsOptions = {
+  origin: ["http://localhost:3000", "https://ваш-домен-с-фронтендом.com"], // Укажите URL фронтенда
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+};
+
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 8000;
 
