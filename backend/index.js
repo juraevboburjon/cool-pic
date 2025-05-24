@@ -25,6 +25,10 @@ app.use("/api/post", postRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/comment", commentRoute);
 
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
+
 module.exports = app;
 
 const startapp = async () => {
