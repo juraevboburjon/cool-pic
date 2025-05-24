@@ -34,7 +34,7 @@ const Post = () => {
   const handleDelete = async () => {
     await axios
       .delete(`${host}/api/post/delete/${id}`)
-      .then(() => navigate("/home"));
+      .then(() => navigate("/"));
   };
 
   return (

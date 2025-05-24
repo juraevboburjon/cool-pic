@@ -21,7 +21,7 @@ function App() {
         <Route path="/login" default element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
         <Route
-          path="/home"
+          path="/"
           element={
             <AuthCheckRoute>
               <Home />

@@ -35,7 +35,7 @@ const CreatePostForm = () => {
       reset();
       setImage(null);
       setTags([]);
-      navigate("/home");
+      navigate("/");
     } catch (error) {
       console.error(error);
     }
