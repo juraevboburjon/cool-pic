@@ -29,7 +29,12 @@ const Login = () => {
         toast.success(res.data.message);
       }
     } catch (error) {
-      toast.error(error.response.data.message);
+      const message =
+        error.response?.data?.message ||
+        error.message ||
+        "Произошла ошибка при логине";
+
+      toast.error(message);
     }
   };
 
