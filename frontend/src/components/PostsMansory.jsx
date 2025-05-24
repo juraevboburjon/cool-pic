@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const PostsMansory = () => {
   const host = import.meta.env.VITE_HOST;
-  const [posts, setPosts] = useState({});
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {

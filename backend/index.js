@@ -2,22 +2,14 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-// const path = require("path");
 
 const postRoute = require("./routes/post.route");
 const authRoute = require("./routes/auth.route");
 const commentRoute = require("./routes/comment.route");
 
-const corsOptions = {
-  origin: ["http://localhost:3000", "https://cool-pic.vercel.app"], // Укажите URL фронтенда
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-};
-
 const app = express();
 app.use(express.json());
-app.options("*", cors(corsOptions));
-app.use(cors(corsOptions));
+app.use(cors());
 
 const PORT = process.env.PORT || 8000;
 
@@ -25,17 +17,6 @@ const PORT = process.env.PORT || 8000;
 app.use("/api/post", postRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/comment", commentRoute);
-
-app.get("/", (req, res) => {
-  res.send("Server is running!");
-});
-
-app.use((req, res, next) => {
-  console.log(`${req.method} ${req.path}`);
-  next();
-});
-
-module.exports = app;
 
 const startapp = async () => {
   try {

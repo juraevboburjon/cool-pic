@@ -23,18 +23,13 @@ const Login = () => {
 
     try {
       const res = await axios.post(`${host}/api/auth/login`, formData);
-      if (res && res.data) {
+      if (res) {
         login(formData.email);
-        navigate("/");
+        navigate("/home");
         toast.success(res.data.message);
       }
     } catch (error) {
-      const message =
-        error.response?.data?.message ||
-        error.message ||
-        "Произошла ошибка при логине";
-
-      toast.error(message);
+      toast.error(error.response.data.message);
     }
   };
 
