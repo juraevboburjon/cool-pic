@@ -39,7 +39,7 @@ const Post = () => {
 
   return (
     <Layout>
-      <div className="mt-25">
+      <div className="mt-35">
         <div className="flex items-start px-20 gap-10 mt-8 flex-col md:flex-row">
           <div className="w-[50%] h-auto bg-cover bg-center">
             <img

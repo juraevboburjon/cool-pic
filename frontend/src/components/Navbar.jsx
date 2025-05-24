@@ -31,7 +31,7 @@ const Navbar = () => {
       <div className="flex gap-x-6 items-center font-medium">
         {!isLoggedIn ? (
           <>
-            <Link to="/login">
+            <Link to={"/login"}>
               <button className="px-4 py-2 text-white bg-blue-800 rounded hover:bg-blue-700">
                 Login
               </button>

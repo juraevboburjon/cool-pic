@@ -12,6 +12,7 @@ import { AuthProvider } from "./service/AuthContext";
 import { Toaster } from "react-hot-toast";
 import Post from "./pages/Post";
 import CreatePost from "./pages/CreatePost";
+import AuthCheckRoute from "./service/AuthCheckRoute";
 
 function App() {
   const routes = createBrowserRouter(
@@ -19,7 +20,14 @@ function App() {
       <>
         <Route path="/login" default element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/home" element={<Home />} />
+        <Route
+          path="/home"
+          element={
+            <AuthCheckRoute>
+              <Home />
+            </AuthCheckRoute>
+          }
+        />
         <Route path="/post/:id" element={<Post />} />
         <Route path="/create" element={<CreatePost />} />
       </>

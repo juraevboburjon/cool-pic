@@ -5,7 +5,7 @@ import Layout from "../components/Layout";
 const CreatePost = () => {
   return (
     <Layout>
-      <div className="mt-10">
+      <div className="mt-35">
         <CreatePostForm />
       </div>
     </Layout>
