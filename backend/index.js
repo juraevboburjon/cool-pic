@@ -16,6 +16,7 @@ const corsOptions = {
 
 const app = express();
 app.use(express.json());
+app.options("*", cors(corsOptions));
 app.use(cors(corsOptions));
 
 const PORT = process.env.PORT || 8000;
@@ -27,6 +28,11 @@ app.use("/api/comment", commentRoute);
 
 app.get("/", (req, res) => {
   res.send("Server is running!");
+});
+
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.path}`);
+  next();
 });
 
 module.exports = app;
