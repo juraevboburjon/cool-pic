@@ -9,7 +9,7 @@ const authRoute = require("./routes/auth.route");
 const commentRoute = require("./routes/comment.route");
 
 const corsOptions = {
-  origin: ["http://localhost:3000", "https://ваш-домен-с-фронтендом.com"], // Укажите URL фронтенда
+  origin: ["http://localhost:3000", "https://cool-pic.vercel.app"], // Укажите URL фронтенда
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
 };
