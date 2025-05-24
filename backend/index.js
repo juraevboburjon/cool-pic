@@ -25,6 +25,8 @@ app.use("/api/post", postRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/comment", commentRoute);
 
+module.exports = app;
+
 const startapp = async () => {
   try {
     await mongoose
