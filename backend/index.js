@@ -10,7 +10,12 @@ const commentRoute = require("./routes/comment.route");
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://cool-pic-pi.vercel.app", "http://localhost:5173"],
+    credentials: true,
+  })
+);
 
 const PORT = process.env.PORT || 8000;
 
