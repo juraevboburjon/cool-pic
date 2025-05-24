@@ -25,7 +25,7 @@ const SignUp = () => {
 
     try {
       const res = await axios.post(`${host}/api/auth/register`, formData);
-      if (res) {
+      if (res && res.data) {
         navigate("/login");
         toast.success(res.data.message);
       }

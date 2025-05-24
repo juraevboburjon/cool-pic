@@ -8,7 +8,7 @@ import Layout from "../components/Layout";
 const Post = () => {
   const { id } = useParams();
   const host = import.meta.env.VITE_HOST;
-  const [postInfo, setPostInfo] = useState([]);
+  const [postInfo, setPostInfo] = useState({});
   const [tags, setTags] = useState([]);
   const currentUser = localStorage.getItem("userEmail");
   const author = postInfo.author;
